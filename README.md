@@ -1,4 +1,4 @@
-# btc-cj
+# filecoin-lotus
 A simple python package interacts with the filecoin lotus node, python version >=3.6 is recommend
 # Install
 ```
