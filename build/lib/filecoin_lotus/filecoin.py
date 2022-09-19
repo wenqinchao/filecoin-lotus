@@ -4,8 +4,6 @@ from filecoin_lotus.wallet import Wallet
 from filecoin_lotus.chain import Chain
 from filecoin_lotus.mpool import MPool
 from filecoin_lotus.state import State
-from filecoin_lotus.gas import Gas
-
 
 class FileCoin:
     COIN_DECIMAL = 18
@@ -17,7 +15,6 @@ class FileCoin:
         self._chain = Chain(self)
         self._mpool = MPool(self)
         self._state = State(self)
-        self._gas = Gas(self)
 
     @property
     def wallet(self):
@@ -34,10 +31,6 @@ class FileCoin:
     @property
     def state(self):
         return self._state
-
-    @property
-    def gas(self):
-        return self._gas
 
     def toAtto(self, value):
         """
