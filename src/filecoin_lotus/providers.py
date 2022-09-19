@@ -12,9 +12,8 @@ class JSONBaseProvider:
 
     def decode_rpc_response(self, raw_response):
         resp = FriendlyCode().json_decode(raw_response.text)
-        res = resp.get("result")
-        if res:
-            return res
+        if 'result' in resp:
+            return resp['result']
         else:
             error = resp.get("error")
             raise Exception(error)
