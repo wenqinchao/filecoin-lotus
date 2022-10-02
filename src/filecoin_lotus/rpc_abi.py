@@ -17,6 +17,7 @@ class RPC:
     # mpool
     mpool_pushMessage = RPCEndpoint(RPC_PREFIX + "MpoolPushMessage")
     mpool_getNonce = RPCEndpoint(RPC_PREFIX + "MpoolGetNonce")
+    mpool_push = RPCEndpoint(RPC_PREFIX + "MpoolPush")
     mpool_pushUntrusted = RPCEndpoint(RPC_PREFIX + "MpoolPushUntrusted")
     mpool_batchPushUntrusted = RPCEndpoint(RPC_PREFIX + "MpoolBatchPushUntrusted")
 
