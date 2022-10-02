@@ -46,7 +46,6 @@ class MPool:
         """
         return self._provider.make_request(RPC.mpool_getNonce, [from_address])
 
-
     def pool_push(self, signed_message: dict):
         """
         Push signed message to pool

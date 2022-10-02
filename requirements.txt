@@ -1,3 +1,5 @@
 requests
 pycoin
+pybitcoin
 cbors
+secp256k1
