@@ -25,3 +25,14 @@ class Gas:
         :return: int
         """
         return self._provider.make_request(RPC.gas_estimateGasLimit, [message, tip_set_key])
+
+    def estimate_gas_premium(self, nblocksincl: int, sender: str, gas_limit: int, tip_set_key: list = None) -> int:
+        """
+        Estimate gas limit of the message
+        :param nblocksincl
+        :param tip_set_key : Cid[]
+        :param sender address
+        :param gas_limit
+        :return: str
+        """
+        return self._provider.make_request(RPC.gas_estimateGasPremium, [nblocksincl, sender, gas_limit, tip_set_key])

@@ -33,3 +33,4 @@ class RPC:
     # gas
     gas_estimateFeeCap = RPCEndpoint(RPC_PREFIX + "GasEstimateFeeCap")
     gas_estimateGasLimit = RPCEndpoint(RPC_PREFIX + "GasEstimateGasLimit")
+    gas_estimateGasPremium = RPCEndpoint(RPC_PREFIX + "GasEstimateGasPremium")
