@@ -147,3 +147,17 @@ class FilTransaction:
             .__add__(self.cbor_encode(self.cbor_clong2b(self.GasPremium))) \
             .__add__(self.cbor_encode(self.Method))\
             .__add__(self.cbor_encode(bytearray.fromhex("")))
+
+    def tx_data(self):
+        return {
+            'From': self.From,
+            'To': self.To,
+            'Nonce': self.Nonce,
+            'Value': str(self.Value),
+            'GasLimit': self.GasLimit,
+            'GasFeeCap': str(self.GasFeeCap),
+            'GasPremium': str(self.GasPremium),
+            'Method': self.Method,
+            'Params': self.Params,
+            'Version': self.Version
+        }
