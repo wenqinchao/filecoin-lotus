@@ -1,5 +1,8 @@
 from typing import Union
-from common import (s2b, address_encode, address_hash, checksum, b2s)
+try:
+    from common import (s2b, address_encode, address_hash, checksum, b2s)
+except:
+    from utils.common import (s2b, address_encode, address_hash, checksum, b2s)
 
 
 def pubkey_to_address(pubkey: Union[bytes, str]):
