@@ -3,7 +3,7 @@ import cbors
 import base64
 from pycoin.encoding.hexbytes import b2h, h2b
 from pycoin.satoshi.der import sigdecode_der
-from bitcoin.main import encode_sig, decode_sig, ecdsa_raw_recover, encode_pubkey
+from cryptos.main import encode_sig, decode_sig, ecdsa_raw_recover, encode_pubkey
 import hashlib
 import binascii
 from secp256k1 import PrivateKey
