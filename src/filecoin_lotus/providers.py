@@ -46,14 +46,21 @@ class HttpProvider(JSONBaseProvider):
             raise TypeError("unknown endpoint uri {}".format(endpoint_uri))
 
         if auth is None:
-            auth = os.popen("cat ~/.lotus/token").read().strip()
+            try:
+                auth = os.popen("cat ~/.lotus/token").read().strip()
+            except:
+                auth = None
 
         self.sess = requests.session()
-        self.sess.headers = {
-            "Content-Type": "application/json",
-            "Authorization": "Bearer " + auth
-        }
-
+        if auth:
+            self.sess.headers = {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer " + auth
+            }
+        else:
+            self.sess.headers = {
+                "Content-Type": "application/json"
+            }
         self.timeout = timeout
         """Request timeout in second."""
 
