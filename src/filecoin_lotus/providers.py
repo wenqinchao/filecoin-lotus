@@ -47,8 +47,12 @@ class HttpProvider(JSONBaseProvider):
 
         if auth is None:
             try:
-                auth = os.popen("cat ~/.lotus/token").read().strip()
-            except:
+                is_exist = os.path.exists("~/.lotus/token")
+                if is_exist:
+                    auth = os.popen("cat ~/.lotus/token").read().strip()
+                else:
+                    auth = None
+            except Exception as err:
                 auth = None
 
         self.sess = requests.session()
