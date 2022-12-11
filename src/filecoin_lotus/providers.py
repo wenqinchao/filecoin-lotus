@@ -16,7 +16,10 @@ class JSONBaseProvider:
             return resp['result']
         else:
             error = resp.get("error")
-            return error
+            if 'already in mpool' in str(error):
+                return error
+            else:
+                raise Exception(error)
 
     def encode_rpc_request(self, method: RPCEndpoint, params: Any):
         rpc_dict = {
