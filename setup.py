@@ -8,7 +8,7 @@ with open('requirements.txt') as f:
 
 setuptools.setup(
     name="filecoin-lotus",
-    version="1.1.0",
+    version="1.2.0",
     author="Wen",
     author_email="wenqinchao@gmail.com",
     description="A package interact with bitcoin node",
