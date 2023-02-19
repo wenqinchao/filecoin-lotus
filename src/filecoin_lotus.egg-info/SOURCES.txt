@@ -5,6 +5,7 @@ src/filecoin_lotus/__init__.py
 src/filecoin_lotus/chain.py
 src/filecoin_lotus/encoding.py
 src/filecoin_lotus/filecoin.py
+src/filecoin_lotus/gas.py
 src/filecoin_lotus/mpool.py
 src/filecoin_lotus/providers.py
 src/filecoin_lotus/rpc_abi.py

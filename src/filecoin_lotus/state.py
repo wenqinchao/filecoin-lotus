@@ -15,6 +15,8 @@ class State:
         :return:
         """
         res = self._provider.make_request(RPC.state_searchMessage, [{"/": message}])
+        if not res:
+            return "not confirmed"
         receipt_info = res.get("Receipt", None)
         status = receipt_info.get("ExitCode", None)
         return status == 0

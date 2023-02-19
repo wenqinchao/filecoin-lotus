@@ -69,7 +69,6 @@ class FriendlyCode:
                 out = li[0] + li[1] + "0" * (decimal - len(li[1]))
         return out
 
-
     def value_decode(self, amount: Any, decimal: int) -> float:
         if not is_string(amount):
             if amount == 0:
@@ -86,12 +85,5 @@ class FriendlyCode:
             out = amount[:-decimal] + "." + amount[-decimal:]
         else:
             out = "0." + "0" * (decimal - ll) + amount
-        j = len(out) - 1
-        while j >= 0:
-            if out[j] == "0" or out[j] == ".":
-                out = out[:-1]
-            else:
-                break
-            j -= 1
         return out
 

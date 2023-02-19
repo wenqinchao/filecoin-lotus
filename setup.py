@@ -3,9 +3,12 @@ import setuptools
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
+with open('requirements.txt') as f:
+    required = f.read().splitlines()
+
 setuptools.setup(
     name="filecoin-lotus",
-    version="1.0.0",
+    version="1.2.0",
     author="Wen",
     author_email="wenqinchao@gmail.com",
     description="A package interact with bitcoin node",
@@ -20,5 +23,6 @@ setuptools.setup(
         "Operating System :: OS Independent",
     ],
     package_dir={"": "src"},
-    python_requires=">=3.6"
+    python_requires=">=3.6",
+    install_requires=required,
 )

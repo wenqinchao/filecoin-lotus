@@ -16,6 +16,10 @@ class RPC:
 
     # mpool
     mpool_pushMessage = RPCEndpoint(RPC_PREFIX + "MpoolPushMessage")
+    mpool_getNonce = RPCEndpoint(RPC_PREFIX + "MpoolGetNonce")
+    mpool_push = RPCEndpoint(RPC_PREFIX + "MpoolPush")
+    mpool_pushUntrusted = RPCEndpoint(RPC_PREFIX + "MpoolPushUntrusted")
+    mpool_batchPushUntrusted = RPCEndpoint(RPC_PREFIX + "MpoolBatchPushUntrusted")
 
     # wallet
     wallet_new = RPCEndpoint(RPC_PREFIX + "WalletNew")
@@ -23,3 +27,10 @@ class RPC:
     wallet_import = RPCEndpoint(RPC_PREFIX + "WalletImport")
     wallet_validate = RPCEndpoint(RPC_PREFIX + "WalletValidateAddress")
     wallet_export = RPCEndpoint(RPC_PREFIX+"WalletExport")
+    wallet_list = RPCEndpoint(RPC_PREFIX+"WalletList")
+    wallet_signMessage = RPCEndpoint(RPC_PREFIX+"WalletSignMessage")
+
+    # gas
+    gas_estimateFeeCap = RPCEndpoint(RPC_PREFIX + "GasEstimateFeeCap")
+    gas_estimateGasLimit = RPCEndpoint(RPC_PREFIX + "GasEstimateGasLimit")
+    gas_estimateGasPremium = RPCEndpoint(RPC_PREFIX + "GasEstimateGasPremium")
