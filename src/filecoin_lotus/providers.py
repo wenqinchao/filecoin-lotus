@@ -12,12 +12,14 @@ class JSONBaseProvider:
 
     def decode_rpc_response(self, raw_response):
         resp = FriendlyCode().json_decode(raw_response.text)
-        res = resp.get("result")
-        if res:
-            return res
+        if 'result' in resp:
+            return resp['result']
         else:
             error = resp.get("error")
-            raise Exception(error)
+            if 'already in mpool' in str(error):
+                return error
+            else:
+                raise Exception(error)
 
     def encode_rpc_request(self, method: RPCEndpoint, params: Any):
         rpc_dict = {
@@ -47,14 +49,25 @@ class HttpProvider(JSONBaseProvider):
             raise TypeError("unknown endpoint uri {}".format(endpoint_uri))
 
         if auth is None:
-            auth = os.popen("cat ~/.lotus/token").read().strip()
+            try:
+                is_exist = os.path.exists("~/.lotus/token")
+                if is_exist:
+                    auth = os.popen("cat ~/.lotus/token").read().strip()
+                else:
+                    auth = None
+            except Exception as err:
+                auth = None
 
         self.sess = requests.session()
-        self.sess.headers = {
-            "Content-Type": "application/json",
-            "Authorization": "Bearer " + auth
-        }
-
+        if auth:
+            self.sess.headers = {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer " + auth
+            }
+        else:
+            self.sess.headers = {
+                "Content-Type": "application/json"
+            }
         self.timeout = timeout
         """Request timeout in second."""
 

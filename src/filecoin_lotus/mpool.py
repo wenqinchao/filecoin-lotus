@@ -37,3 +37,35 @@ class MPool:
             return res.get("CID").get("/"), ""
         except Exception as e:
             return "", e
+
+    def pool_get_nonce(self, from_address: str):
+        """
+        Get nonce of the given address
+        :param from_address:
+        :return:
+        """
+        return self._provider.make_request(RPC.mpool_getNonce, [from_address])
+
+    def pool_push(self, signed_message: dict):
+        """
+        Push signed message to pool
+        :param signed_message:
+        :return:
+        """
+        return self._provider.make_request(RPC.mpool_push, [signed_message])
+
+    def pool_push_untrusted(self, signed_message: dict):
+        """
+        Push signed message to pool
+        :param signed_message:
+        :return:
+        """
+        return self._provider.make_request(RPC.mpool_pushUntrusted, [signed_message])
+
+    def pool_batch_push_untrusted(self, signed_messages: list):
+        """
+        Push list of signed messages to pool
+        :param signed_messages:
+        :return:
+        """
+        return self._provider.make_request(RPC.mpool_batchPushUntrusted, [signed_messages])

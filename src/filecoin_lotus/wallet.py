@@ -52,3 +52,19 @@ class Wallet:
             return res is not None
         except:
             return False
+
+    def wallet_list(self) -> list:
+        """
+        Get list of addresses in default wallet
+        :return: address list
+        """
+        return self._provider.make_request(RPC.wallet_list)
+
+    def wallet_sign_message(self, from_address: str, message: dict) -> bool:
+        """
+        Sign given message by address
+        :param from_address:
+        :param message:
+        :return: signed message
+        """
+        return self._provider.make_request(RPC.wallet_signMessage, [from_address, message])
